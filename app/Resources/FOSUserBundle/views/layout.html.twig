@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
+{% extends 'template.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/fosuser.css') }}">
-</head>
-<body>
-    <div class="content">
-        <div class="panel">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="">
             {# 'Connexion' #}
             <div>
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -37,5 +39,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

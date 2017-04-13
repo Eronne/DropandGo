@@ -5,19 +5,121 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Drop&Go{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
+    <title>Drop&Go - {% block title %}{% endblock %}</title>
 
-    <!--Import Google Icon Font-->
+    {# Tab's color for chrome mobile #}
+    <meta name="theme-color" content="#5c6bc0">
+
+    {# Favicon #}
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    {# Import Google Icon Font #}
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}"  media="screen,projection"/>
+    {# Import materialize.min.css #}
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.css') }}"  media="screen,projection"/>
+    {# Import material font #}
+    <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }} ">
+
+    {% block stylesheets %}{% endblock %}
 </head>
 <body>
+    {# Navigation | color for nav links : #414b83#}
+    <nav>
+        <div class="nav-wrapper white">
+            {% if app.user %}
+                <a href="{{ path('homepage') }}" class="brand-logo">Drop&Go</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ path('help') }}">Aide</a></li>
+                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="zmdi zmdi-account-o"></i>Se déconnecter</a></li>
+                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
+                </ul>
+            {% else %}
+                <a href="{{ path('homepage') }}" class="brand-logo">Drop&Go</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ path('help') }}">Aide</a></li>
+                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_registration_register') }}">S'inscrire</a></li>
+                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}"><i class="zmdi zmdi-account-add"></i>
+                            S'inscrire</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}"><i class="zmdi zmdi-account"></i>
+                            Se connecter</a></li>
+                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
+                </ul>
+            {% endif %}
+        </div>
+    </nav>
+
     {% block body %}{% endblock %}
-    {% block javascripts %}{% endblock %}
-    <!--Import jQuery before materialize.js-->
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Drop&Go</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright yellow darken-2">
+            <div class="container">
+                Erwann Letue | <a href="https://github.com/Eronne"><i class="zmdi zmdi-github"></i>
+                    Github</a>
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    {# Import jQuery #}
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    {# Import materialize.min.js #}
     <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+    {# Slide menu for mobile view #}
+    <script> $(".button-collapse").sideNav();</script>
+
+    {% block javascripts %}{% endblock %}
 </body>
 </html>
