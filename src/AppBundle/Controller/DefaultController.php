@@ -27,4 +27,14 @@ class DefaultController extends Controller
     {
         return $this->render('default/help.html.twig');
     }
+
+    /**
+     * @Route("/storage", name="storage")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function storageAction(Request $request)
+    {
+        return $this->render('default/storage.html.twig');
+    }
 }

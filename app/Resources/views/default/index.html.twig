@@ -3,5 +3,18 @@
 {% block title %}Bienvenue !{% endblock %}
 
 {% block body %}
-    <h1>Homepage</h1>
+    <div class="container">
+        {# Visu 1 #}
+        <h1>Vos fichiers accessibles n'importe où, quand vous voulez</h1>
+        <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn">S'inscrire</a>
+
+        {# Visu 2 #}
+        <h2>Stockez n'importe quel type de fichier afin de les rendre accessible de n'importe où</h2>
+        <p>Depuis votre ordinateur, votre téléphone ou encore votre tablette, il vous sera possible d'avoir accès à vos fichiers mis en ligne sur Drop&Go.</p>
+
+        {# Visu 3 #}
+        {# Todo : Mettre logo Drop&Go #}
+        <h1>Essayer Drop&Go, ce service est gratuit !</h1>
+        <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn">S'inscrire sur Drop&Go</a>
+    </div>
 {% endblock %}
