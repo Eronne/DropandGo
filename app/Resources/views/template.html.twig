@@ -27,7 +27,7 @@
     <nav>
         <div class="nav-wrapper white">
             {% if app.user %}
-                <a href="{{ path('homepage') }}" class="brand-logo">Drop&Go</a>
+                <a href="{{ path('homepage') }}" class="brand-logo">&nbsp;Drop&Go&nbsp;</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ path('storage') }}">Accéder à Drop&Go</a></li>
@@ -41,7 +41,7 @@
                     <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
                 </ul>
             {% else %}
-                <a href="{{ path('homepage') }}" class="brand-logo">Drop&Go</a>
+                <a href="{{ path('homepage') }}" class="brand-logo">&nbsp;Drop&Go&nbsp;</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ path('help') }}">Aide</a></li>

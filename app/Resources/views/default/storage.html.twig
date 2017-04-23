@@ -1,7 +1,101 @@
-{% block title %}Bienvenue !{% endblock %}
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drop&Go - Storage</title>
 
-{% block body %}
+    {# Tab's color for chrome mobile #}
+    <meta name="theme-color" content="#5c6bc0">
+
+    {# Favicon #}
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    {# Import Google Icon Font #}
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {# Import materialize.min.css #}
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.css') }}"  media="screen,projection"/>
+    {# Import material font #}
+    <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }} ">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper white">
+                <a href="{{ path('homepage') }}" class="brand-logo">&nbsp;Drop&Go&nbsp;</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ path('help') }}">Aide</a></li>
+                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
+                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="zmdi zmdi-account-o"></i>Se déconnecter</a></li>
+                </ul>
+        </div>
+    </nav>
+
+
+
+    {# Upload button (Modal) #}
+    <div class="fixed-action-btn horizontal click-to-toggle">
+        <a href="#modal" class="btn-floating btn-large waves-effect waves-light yellow darken-2"><i class="zmdi zmdi-cloud-upload"></i></a>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h4>Mettre un fichier en ligne</h4>
+            <p>Upload form</p>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Envoyer<i class="material-icons right">send</i>
+            </button>
+            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Retour</a>
+        </div>
+    </div>
+
+
+
     <div class="container">
         <h1>Storage</h1>
+
+        <div class="col s12 m7">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="http://lorempixel.com/100/190/nature/6">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p class="card-title grey-text text-darken-4">Example.docx</p>
+                        <p><i class="zmdi zmdi-calendar-alt"></i>&nbsp;&nbsp;11/07/2017 - 22h22</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#"><i class="zmdi zmdi-cloud-download"></i></a>
+                        <a href="#"><i class="zmdi zmdi-delete"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-{% endblock %}
+
+
+
+    {# Import jQuery #}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    {# Import materialize.min.js #}
+    <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+    {# Slide menu for mobile view #}
+    <script>
+        $(".button-collapse").sideNav();
+
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
+    </script>
+</body>
+</html>
