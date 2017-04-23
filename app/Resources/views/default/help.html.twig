@@ -10,31 +10,39 @@
             <li>
                 <div class="collapsible-header active"><i class="zmdi zmdi-account-add"></i>S'inscrire</div>
                 <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
+                    <p>Pour vous inscrire sur Drop&Go, il vous suffit de vous rendre sur la page d'inscription grâce au bouton "<a href="{{ path('fos_user_registration_register') }}">S'inscrire</a>" situé dans la barre de navigation.</p>
+                    <p>Il vous faudra ensuite remplir le formulaire d'inscriptoin et le tour sera joué !</p>
                 </div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="zmdi zmdi-account"></i>Se connecter</div>
                 <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
+                    <p>Pour vous connecter à votre compte Drop&Go, il vous suffit de vous rendre sur la page de connection grâce au bouton "<a href="{{ path('fos_user_security_login') }}">Se connecter</a>" situé dans la barre de navigation.</p>
+                    <p>Saisissez votre nom d'utilisateur ainsi que votre mot de passe et vous pourrez accéder à l'ensemble de vos fichiers !</p>
                 </div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="zmdi zmdi-account-o"></i>Se déconnecter</div>
                 <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
+                    <p>Si vous souhaitez vous déconnecter de votre compte Drop&Go, rien de plus simple !</p>
+                    <p>Il vous suffit de cliquer sur le bouton "<a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a>" situé dans la barre de navigation.</p>
+                    <p>A la prochaine !</p>
                 </div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="zmdi zmdi-globe"></i>Changer la langue</div>
                 <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
+                    <p>Si vous souhaitez changer la langue de l'application, il faudra vous rendre dans l'un des pieds de page du site Internet. C'est ici que vous trouverez le moyen de changer la langue.</p>
+                    <p>Drop&Go est disponible en français mais aussi en anglais.</p>
+                    <p>Il vous faudra alors choisir la langue que vous désirez en cliquant soit sur "<a href="#">fr</a>" (français) ou sur "<a href="#">en</a>" (anglais)</p>
                 </div>
             </li>
             <li>
                 <div class="collapsible-header"><i class="zmdi zmdi-cloud"></i>Accéder à Drop&Go</div>
                 <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
+                    <p>Pour accéder à Drop&Go, il existe un lien disponible dans la barre de navigation : "<a href="{{ path('storage') }}">Accéder à Drop&Go</a>".</p>
+                    <p>Ce lien n'apparaît que lorsque vous êtes connecté.</p>
+                    <p>Nous vous invitons alors à vous <a href="{{ path('fos_user_security_login') }}">connecter</a> pour voir ce lien apparaître et si vous ne disposez pas encore de compte, vous pouvez alors dès à présent vous <a href="{{ path('fos_user_registration_register') }}">créer un.</a></p>
                 </div>
             </li>
             <li>
@@ -62,5 +70,8 @@
                 </div>
             </li>
         </ul>
+
+        <p>Pour tout autres questions, vous pouvez dès à présent <a href="#">contacter le support en ligne.</a></p>
+        <p>Nous allons résoudre votre problème en un rien de temps !</p>
     </div>
 {% endblock %}
