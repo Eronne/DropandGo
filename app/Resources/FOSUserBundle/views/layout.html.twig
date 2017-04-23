@@ -40,3 +40,15 @@
         </div>
     </div>
 {% endblock %}
+
+
+{% block javascripts %}
+
+    {% if error %}
+        <script>
+            jQuery(document).ready(function () {
+                Materialize.toast("{{ error.messageKey|trans(error.messageData, 'security')}}", 4000);
+            });
+        </script>
+    {% endif %}
+{% endblock %}

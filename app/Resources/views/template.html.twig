@@ -36,7 +36,7 @@
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
-                    <li><a href="{{ path('storage') }}">Accéder à Drop&Go</a></li>
+                    <li><a href="{{ path('storage') }}"><i class="zmdi zmdi-cloud"></i>Accéder à Drop&Go</a></li>
                     <li><a href="{{ path('fos_user_security_logout') }}"><i class="zmdi zmdi-account-o"></i>Se déconnecter</a></li>
                     <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
                 </ul>
@@ -50,31 +50,20 @@
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
-                    <li><a href="{{ path('fos_user_registration_register') }}"><i class="zmdi zmdi-account-add"></i>
-                            S'inscrire</a></li>
-                    <li><a href="{{ path('fos_user_security_login') }}"><i class="zmdi zmdi-account"></i>
-                            Se connecter</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}"><i class="zmdi zmdi-account-add"></i>S'inscrire</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}"><i class="zmdi zmdi-account"></i>Se connecter</a></li>
                     <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
                 </ul>
             {% endif %}
         </div>
     </nav>
 
+
+
     {% block body %}{% endblock %}
 
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <br>
     <br>
     <br>
@@ -107,7 +96,7 @@
             <div class="container">
                 Erwann Letue | <a href="https://github.com/Eronne"><i class="zmdi zmdi-github"></i>
                     Github</a>
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="grey-text text-lighten-4 right" href="#">fr | en</a>
             </div>
         </div>
     </footer>

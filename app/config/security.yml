@@ -35,7 +35,6 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-
                 # submit the login form here
                 check_path: /login_check
                 # the user is redirected here when they need to log in
@@ -44,7 +43,7 @@ security:
                 use_forward: false
                 # login success redirecting options (read further below)
                 always_use_default_target_path: false
-                default_target_path: /help
+                default_target_path: /storage
                 target_path_parameter: _target_path
                 use_referer: false
             logout:       true
