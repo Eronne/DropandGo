@@ -22,6 +22,11 @@
 
     {% block stylesheets %}{% endblock %}
 </head>
+
+
+
+
+
 <body>
     {# Navigation | color for nav links : #414b83#}
     <nav>
@@ -30,29 +35,29 @@
                 <a href="{{ path('homepage') }}" class="brand-logo">&nbsp;Drop&Go&nbsp;</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ path('storage') }}">Accéder à Drop&Go</a></li>
-                    <li><a href="{{ path('help') }}">Aide</a></li>
-                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                    <li><a href="{{ path('storage') }}">{{ 'nav.access' | trans }}</a></li>
+                    <li><a href="{{ path('help') }}">{{ 'nav.help' | trans }}</a></li>
+                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_logout') }}">{{ 'nav.logout' | trans }}</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
-                    <li><a href="{{ path('storage') }}"><i class="zmdi zmdi-cloud"></i>Accéder à Drop&Go</a></li>
-                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="zmdi zmdi-account-o"></i>Se déconnecter</a></li>
-                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
+                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>{{ 'nav.home' | trans }}</a></li>
+                    <li><a href="{{ path('storage') }}"><i class="zmdi zmdi-cloud"></i>{{ 'nav.access' | trans }}</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="zmdi zmdi-account-o"></i>{{ 'nav.logout' | trans }}</a></li>
+                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>{{ 'nav.help' | trans }}</a></li>
                 </ul>
             {% else %}
                 <a href="{{ path('homepage') }}" class="brand-logo">&nbsp;Drop&Go&nbsp;</a>
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ path('help') }}">Aide</a></li>
-                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_registration_register') }}">S'inscrire</a></li>
-                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                    <li><a href="{{ path('help') }}">{{ 'nav.help' | trans }}</a></li>
+                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_registration_register') }}">{{ 'nav.signup' | trans }}</a></li>
+                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_login') }}">{{ 'nav.login' | trans }}</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
-                    <li><a href="{{ path('fos_user_registration_register') }}"><i class="zmdi zmdi-account-add"></i>S'inscrire</a></li>
-                    <li><a href="{{ path('fos_user_security_login') }}"><i class="zmdi zmdi-account"></i>Se connecter</a></li>
-                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
+                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>{{ 'nav.home' | trans }}</a></li>
+                    <li><a href="{{ path('fos_user_registration_register') }}"><i class="zmdi zmdi-account-add"></i>{{ 'nav.signup' | trans }}</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}"><i class="zmdi zmdi-account"></i>{{ 'nav.login' | trans }}</a></li>
+                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>{{ 'nav.help' | trans }}</a></li>
                 </ul>
             {% endif %}
         </div>
@@ -79,30 +84,38 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Drop&Go</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <p class="grey-text text-lighten-4">{{ 'footer.description' | trans }}</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                    <h5 class="white-text">{{ 'footer.links.title' | trans }}</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">Link 4</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.first' | trans }}</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.second' | trans }}</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.third' | trans }}</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.fourth' | trans }}</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-copyright yellow darken-2">
             <div class="container">
-                Erwann Letue | <a href="https://github.com/Eronne"><i class="zmdi zmdi-github"></i>
-                    Github</a>
-                <a class="grey-text text-lighten-4 right" href="#">fr | en</a>
+                {# Dropdown button for language #}
+                <a class='dropdown-button btn right' href='#' data-activates='dropdown1'>Langue</a>
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'fr' })) }}">{{ 'footer.copyright.fr' | trans }}</a></li>
+                    <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'en' })) }}">{{ 'footer.copyright.en' | trans }}</a></li>
+                </ul>
+
+                <a class="waves-effect waves-teal btn-flat left" href="https://github.com/Eronne"><i class="zmdi zmdi-github"></i> Erwann Letue</a>
             </div>
         </div>
     </footer>
 
 
 
+
+
+    {# SCRIPTS #}
     {# Import jQuery #}
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 

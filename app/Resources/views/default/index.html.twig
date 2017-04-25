@@ -5,15 +5,21 @@
 {% block body %}
     <div class="container">
         {# Visu 1 #}
-        <h1>Vos fichiers accessibles n'importe où, quand vous voulez</h1>
-        <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn">S'inscrire</a>
+        <div class="">
+            <h1>{{ 'd1.title' | trans }}</h1>
+            <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn">{{ 'd1.button' | trans }}</a>
+        </div>
 
         {# Visu 2 #}
-        <h2>Stockez n'importe quel type de fichier afin de les rendre accessible de n'importe où</h2>
-        <p>Depuis votre ordinateur, votre téléphone ou encore votre tablette, il vous sera possible d'avoir accès à vos fichiers mis en ligne sur Drop&Go.</p>
+        <div class="">
+            <h2>{{ 'd2.title' | trans }}</h2>
+            <p>{{ 'd2.text' | trans }}</p>
+        </div>
 
         {# Visu 3 #}
-        <h1>Essayer Drop&Go, ce service est gratuit !</h1>
-        <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn">S'inscrire sur Drop&Go</a>
+        <div class="">
+            <h1>{{ 'd3.title' | trans }}</h1>
+            <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn">{{ 'd3.button' | trans }}</a>
+        </div>
     </div>
 {% endblock %}

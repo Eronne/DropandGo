@@ -4,67 +4,69 @@
 
 {% block body %}
     <div class="container">
-        <h1>Help</h1>
+        <h1>Drop&Go - {{ 'title' | trans }}</h1>
+
 
         <ul class="collapsible popout" data-collapsible="accordion">
             <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-account-add"></i>S'inscrire</div>
+                <div class="collapsible-header"><i class="zmdi zmdi-account-add"></i>{{ 'collapsible1.header' | trans }}</div>
                 <div class="collapsible-body">
-                    <p>Pour vous inscrire sur Drop&Go, il vous suffit de vous rendre sur la page d'inscription grâce au bouton "<a href="{{ path('fos_user_registration_register') }}">S'inscrire</a>" situé dans la barre de navigation.</p>
+                    <p>{{ 'collapsible1.body' | trans({'%link_start%' : '<a href="'~path('fos_user_registration_register')~'">', '%link_end%' : '</a>'}) | raw }}</p>
                     <p>Il vous faudra ensuite remplir le formulaire d'inscriptoin et le tour sera joué !</p>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-account"></i>Se connecter</div>
+                <div class="collapsible-header"><i class="zmdi zmdi-account"></i>{{ 'collapsible2.header' | trans }}</div>
                 <div class="collapsible-body">
-                    <p>Pour vous connecter à votre compte Drop&Go, il vous suffit de vous rendre sur la page de connection grâce au bouton "<a href="{{ path('fos_user_security_login') }}">Se connecter</a>" situé dans la barre de navigation.</p>
-                    <p>Saisissez votre nom d'utilisateur ainsi que votre mot de passe et vous pourrez accéder à l'ensemble de vos fichiers !</p>
+                    <p>{{ 'collapsible2.body1' | trans({'%link_start%' : '<a href="'~path('fos_user_security_login')~'">', '%link_end%' : '</a>'}) | raw }}</p>
+                    <p>{{ 'collapsible2.body2' | trans }}</p>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-account-o"></i>Se déconnecter</div>
+                <div class="collapsible-header"><i class="zmdi zmdi-account-o"></i>{{ 'collapsible3.header' | trans }}</div>
                 <div class="collapsible-body">
-                    <p>Si vous souhaitez vous déconnecter de votre compte Drop&Go, rien de plus simple !</p>
-                    <p>Il vous suffit de cliquer sur le bouton "<a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a>" situé dans la barre de navigation.</p>
-                    <p>A la prochaine !</p>
+                    <p>{{ 'collapsible3.body1' | trans }}</p>
+                    <p>{{ 'collapsible3.body2' | trans({'%link_start%' : '<a href="'~path('fos_user_security_logout')~'">', '%link_end%' : '</a>'}) | raw }}</p>
+                    <p>{{ 'collapsible3.body3' | trans }}</p>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-globe"></i>Changer la langue</div>
+                <div class="collapsible-header"><i class="zmdi zmdi-globe"></i>{{ 'collapsible4.header' | trans }}</div>
                 <div class="collapsible-body">
-                    <p>Si vous souhaitez changer la langue de l'application, il faudra vous rendre dans l'un des pieds de page du site Internet. C'est ici que vous trouverez le moyen de changer la langue.</p>
-                    <p>Drop&Go est disponible en français mais aussi en anglais.</p>
-                    <p>Il vous faudra alors choisir la langue que vous désirez en cliquant soit sur "<a href="#">fr</a>" (français) ou sur "<a href="#">en</a>" (anglais)</p>
+                    <p>{{ 'collapsible4.body1' | trans }}</p>
+                    <p>{{ 'collapsible4.body2' | trans }}</p>
+                    {# Todo : Modifier les liens de changement de langue #}
+                    <p>{{ 'collapsible4.body3' | trans({'%link1_start%' : '<a href="'~path('homepage')~'">', '%link1_end%' : '</a>'}) | trans({'%link2_start%' : '<a href="'~path('help')~'">', '%link2_end%' : '</a>'}) | raw }}</p>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-cloud"></i>Accéder à Drop&Go</div>
+                <div class="collapsible-header"><i class="zmdi zmdi-cloud"></i>{{ 'collapsible5.header' | trans }}</div>
                 <div class="collapsible-body">
-                    <p>Pour accéder à Drop&Go, il existe un lien disponible dans la barre de navigation : "<a href="{{ path('storage') }}">Accéder à Drop&Go</a>".</p>
-                    <p>Ce lien n'apparaît que lorsque vous êtes connecté.</p>
-                    <p>Nous vous invitons alors à vous <a href="{{ path('fos_user_security_login') }}">connecter</a> pour voir ce lien apparaître et si vous ne disposez pas encore de compte, vous pouvez alors dès à présent vous <a href="{{ path('fos_user_registration_register') }}">créer un.</a></p>
+                    <p>{{ 'collapsible5.body1' | trans({'%link_start%' : '<a href="'~path('storage')~'">', '%link_end%' : '</a>'}) | raw }}</p>
+                    <p>{{ 'collapsible5.body2' | trans }}</p>
+                    <p>{{ 'collapsible5.body3' | trans({'%link1_start%' : '<a href="'~path('fos_user_security_login')~'">', '%link1_end%' : '</a>'}) | trans({'%link2_start%' : '<a href="'~path('fos_user_registration_register')~'">', '%link2_end%' : '</a>'}) | raw }}</p>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-cloud-upload"></i>Mise en ligne de fichiers</div>
-                <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-cloud-download"></i>Téléchargement de fichiers</div>
+                <div class="collapsible-header"><i class="zmdi zmdi-cloud-upload"></i>{{ 'collapsible6.header' | trans }}</div>
                 <div class="collapsible-body">
                     <span>Lorem ipsum dolor sit amet.</span>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-copy"></i>Copie de fichiers</div>
+                <div class="collapsible-header"><i class="zmdi zmdi-cloud-download"></i>{{ 'collapsible7.header' | trans }}</div>
                 <div class="collapsible-body">
                     <span>Lorem ipsum dolor sit amet.</span>
                 </div>
             </li>
             <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-delete"></i>Suppression de fichiers</div>
+                <div class="collapsible-header"><i class="zmdi zmdi-copy"></i>{{ 'collapsible8.header' | trans }}</div>
+                <div class="collapsible-body">
+                    <span>Lorem ipsum dolor sit amet.</span>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header"><i class="zmdi zmdi-delete"></i>{{ 'collapsible9.header' | trans }}</div>
                 <div class="collapsible-body">
                     <span>Lorem ipsum dolor sit amet.</span>
                 </div>

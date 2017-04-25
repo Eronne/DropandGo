@@ -5,14 +5,13 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use AppBundle\Form\Upload;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/{_locale}", name="homepage", defaults={"_locale": "fr"}, requirements={
+     *     "_locale": "fr|en"
+     * })
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -24,7 +23,9 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/help", name="help")
+     * @Route("/{_locale}/help", name="help", defaults={"_locale": "fr"}, requirements={
+     *     "_locale": "fr|en"
+     * })
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */

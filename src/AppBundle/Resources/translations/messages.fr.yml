@@ -1,0 +1,78 @@
+#TEMPLATE.HTML.TWIG
+nav:
+  home: Accueil
+  access: Accéder à Drop&Go
+  help: Aide
+  login: Se connecter
+  signup: S'inscrire
+  logout: Se déconnecter
+
+footer:
+  description: Description du footer en français
+  links:
+    title: Titre en français
+    first: Premier
+    second: Deuxième
+    third: Troisième
+    fourth: Quatrième
+  copyright:
+    fr: Français
+    en: Anglais
+
+
+
+#INDEX.HTML.TWIG
+d1:
+  title: Vos fichiers accessibles n'importe où, quand vous voulez
+  button: S'inscrire
+d2:
+  title: Stockez n'importe quel type de fichier afin de les rendre accessible de n'importe où de manière sécurisée.
+  text: Depuis votre ordinateur, votre téléphone ou encore votre tablette, il vous sera possible d'avoir accès à vos fichiers mis en ligne sur Drop&Go.
+
+d3:
+  title: Essayer Drop&Go, ce service est gratuit !
+  button: S'inscrire sur Drop&Go
+
+
+
+#HELP.HTML.TWIG
+title: Aide
+
+collapsible1:
+  header: S'inscrire
+  body: Pour vous inscrire sur Drop&Go, il vous suffit de vous rendre sur la page d'inscription grâce au bouton "%link_start%S'inscrire%link_end%" situé dans la barre de navigation.
+
+collapsible2:
+  header: Se connecter
+  body1: Pour vous connecter à votre compte Drop&Go, il vous suffit de vous rendre sur la page de connection grâce au bouton "%link_start%Se connecter%link_end%" situé dans la barre de navigation.
+  body2: Saisissez votre nom d'utilisateur ainsi que votre mot de passe et vous pourrez accéder à l'ensemble de vos fichiers !
+
+collapsible3:
+  header: Se déconnecter
+  body1: Si vous souhaitez vous déconnecter de votre compte Drop&Go, rien de plus simple !
+  body2: Il vous suffit de cliquer sur le bouton "%link_start%Se déconnecter%link_end%" situé dans la barre de navigation.
+  body3: A la prochaine !
+
+collapsible4:
+  header: Changer la langue
+  body1: Si vous souhaitez changer la langue de l'application, il faudra vous rendre dans l'un des pieds de page du site Internet. C'est ici que vous trouverez le moyen de changer la langue.
+  body2: Drop&Go est disponible en français mais aussi en anglais.
+  body3: Il vous faudra alors choisir la langue que vous désirez en cliquant soit sur "%link1_start%fr%link1_end%" (français) ou sur "%link2_start%en%link2_end%" (anglais)
+
+collapsible5:
+  header: Accéder à Drop&Go
+  body1: Pour accéder à Drop&Go, il existe un lien disponible dans la barre de navigation "%link_start%Accéder à Drop&Go%link_end%".
+  body2: Ce lien n'apparaît que lorsque vous êtes connecté.
+  body3: Nous vous invitons alors à vous %link1_start%connecter%link1_end% pour voir ce lien apparaître et si vous ne disposez pas encore de compte, vous pouvez alors dès à présent vous %link2_start%créer un%link2_end%.
+
+collapsible6:
+  header: Mise en ligne de fichiers
+
+collapsible7:
+  header: Téléchargement de fichiers
+
+collapsible8:
+  header: Copie de fichiers
+
+collapsible9:
+  header: Suppression de fichiers
