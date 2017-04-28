@@ -15,6 +15,7 @@ footer:
     third: Third
     fourth: Fourth
   copyright:
+    title: Languages
     fr: French
     en: English
 
@@ -53,7 +54,7 @@ collapsible3:
 
 collapsible4:
   header: Change langage
-  body1: Si vous souhaitez changer la langue de l'application, il faudra vous rendre dans l'un des pieds de page du site Internet. C'est ici que vous trouverez le moyen de changer la langue.
+  body1: Si vous souhaitez changer la langue de l'application, il faudra vous rendre dans l'un des pieds de page du site Internet et plus précisement dans le menu déroulant "Langues".
   body2: Drop&Go est disponible en français mais aussi en anglais.
   body3: Il vous faudra alors choisir la langue que vous désirez en cliquant soit sur "%link1_start%fr%link1_end%" (français) ou sur "%link2_start%en%link2_end%" (anglais)
 

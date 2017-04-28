@@ -100,7 +100,7 @@
         <div class="footer-copyright yellow darken-2">
             <div class="container">
                 {# Dropdown button for language #}
-                <a class='dropdown-button btn right' href='#' data-activates='dropdown1'>Langue</a>
+                <a class='dropdown-button btn right' href='#' data-activates='dropdown1'>{{ 'footer.copyright.title' | trans }}</a>
                 <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'fr' })) }}">{{ 'footer.copyright.fr' | trans }}</a></li>
                     <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'en' })) }}">{{ 'footer.copyright.en' | trans }}</a></li>
