@@ -7,3 +7,9 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.file_listener:
+        class: AppBundle\EventListener\StoreFileListener
+        arguments:
+          - "%kernel.root_dir%"
+        tags:
+          - { name: doctrine.event_listener, event: prePersist }

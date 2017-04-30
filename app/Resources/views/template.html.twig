@@ -10,22 +10,18 @@
     {# Tab's color for chrome mobile #}
     <meta name="theme-color" content="#5c6bc0">
 
-    {# Favicon #}
-    <link rel="icon" type="image/png" href="favicon.png" />
+    {% block stylesheets %}
+        {# Favicon #}
+        <link rel="icon" type="image/png" href="favicon.png" />
 
-    {# Import Google Icon Font #}
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    {# Import materialize.min.css #}
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.css') }}"  media="screen,projection"/>
-    {# Import material font #}
-    <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }} ">
-
-    {% block stylesheets %}{% endblock %}
+        {# Import Google Icon Font #}
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {# Import materialize.min.css #}
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.css') }}"  media="screen,projection"/>
+        {# Import material font #}
+        <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }} ">
+    {% endblock %}
 </head>
-
-
-
-
 
 <body>
     {# Navigation | color for nav links : #414b83#}
@@ -111,21 +107,18 @@
         </div>
     </footer>
 
+    {% block javascripts %}
+        {# Import jQuery #}
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
+        {# Import materialize.min.js #}
+        <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+        {# Slide menu for mobile view #}
+        <script>
+            $(".button-collapse").sideNav();
+        </script>
 
-
-
-    {# SCRIPTS #}
-    {# Import jQuery #}
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-    {# Import materialize.min.js #}
-    <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
-    {# Slide menu for mobile view #}
-    <script>
-        $(".button-collapse").sideNav();
-    </script>
-
-    {% block javascripts %}{% endblock %}
+        <script src="js/vendor.js"></script>
+    {% endblock %}
 </body>
 </html>

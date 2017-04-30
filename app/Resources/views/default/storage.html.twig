@@ -48,7 +48,27 @@
     <div id="modal" class="modal">
         <div class="modal-content">
             <h4>Mettre un fichier en ligne</h4>
-            <p>Upload form</p>
+
+            <h2>Upload file</h2>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="file">File</label> <input id="file" type="file" name="file">
+                    <input class="btn btn-primary" type="submit">
+                </div>
+            </form>
+
+            <div id="progress-box" style="display: none;">
+                <h3>Progress</h3>
+                <div class="progress">
+                    <div id="progress-value" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div id="errors-box" style="display: none;">
+                <div class="alert alert-danger" id="errors"></div>
+            </div>
+            <div id="upload-complete-box" style="display: none;">
+                <div class="alert alert-success" id="upload-complete"></div>
+            </div>
         </div>
         <div class="modal-footer">
             <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Envoyer<i class="material-icons right">send</i>
@@ -60,24 +80,34 @@
 
 
     <div class="container">
-        <h1>Storage</h1>
-
-        <div class="col s12 m7">
-            <div class="card horizontal">
-                <div class="card-image">
-                    <img src="http://lorempixel.com/100/190/nature/6">
-                </div>
-                <div class="card-stacked">
-                    <div class="card-content">
-                        <p class="card-title grey-text text-darken-4">Example.docx</p>
-                        <p><i class="zmdi zmdi-calendar-alt"></i>&nbsp;&nbsp;11/07/2017 - 22h22</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#"><i class="zmdi zmdi-cloud-download"></i></a>
-                        <a href="#"><i class="zmdi zmdi-delete"></i></a>
-                    </div>
-                </div>
+        <div class="row">
+            <h2>Upload file</h2>
+            <div style="display: none" id="alert-box">
+                <div class="alert alert-danger">File does not longer exists.</div>
             </div>
+
+            {% for file in files %}
+                <div class="col s12 m7">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="http://lorempixel.com/100/190/nature/6">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h4>{{ file.path }}</h4>
+                            </div>
+                            <div class="card-action">
+                                {% if not file.deleted %}
+                                    <a class="btn btn-primary btn-sm" href="{{ path('download', {"key": file.key}) }}">download</a>
+                                    <button x-id="{{ file.key }}" class="btn btn-danger btn-sm btn-delete">delete</button>
+                                {% else %}
+                                    deleted
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -95,6 +125,88 @@
         $(document).ready(function(){
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal').modal();
+        });
+
+
+        {# Upload #}
+        $(function () {
+            document.getElementById('progress-value').style = "width: 0%";
+            document.getElementById('upload-form').addEventListener('submit', onSubmit);
+
+            function onSubmit(event) {
+                event.preventDefault();
+                resetAlertBox();
+
+                var formData = new FormData();
+                formData.append("upload[file]", document.getElementById("file").files[0]);
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/upload");
+                xhr.addEventListener('load', onRequestComplete, false);
+                xhr.upload.addEventListener("load", onUploadComplete, false);
+                xhr.upload.addEventListener("progress", onUploadProgress, false);
+                xhr.send(formData);
+                console.log(formData);
+            }
+
+            function onUploadProgress(event) {
+                if (event.lengthComputable) {
+                    $('#progress-box').css('display', 'block');
+                    var percentComplete = event.loaded / event.total;
+                    document.getElementById('progress-value').style = "width: "+parseFloat(percentComplete*100).toFixed(2)+"%";
+                }
+            }
+
+            function onUploadComplete() {
+                $('#upload-complete-box').css('display', 'block');
+            }
+
+            function onRequestComplete(event) {
+                if (201 === event.explicitOriginalTarget.status){
+                    var response = JSON.parse(event.explicitOriginalTarget.response);
+                    $('#upload-complete').append('Upload complete: <a href="/'+response.key+'">download key '+response.key+'</a>');
+
+                    return;
+                }
+
+                var errors = JSON.parse(event.explicitOriginalTarget.response);
+                $('#errors-box').css('display', 'block');
+                $('#upload-complete-box').css('display', 'none');
+                var list = document.createElement('ul');
+                for(var i = 0; i < errors.length; i++) {
+                    var item = document.createElement('li');
+                    item.appendChild(document.createTextNode(errors[i]));
+                    list.appendChild(item);
+                }
+                var title = document.createElement('span');
+                title.textContent = "Error found";
+                document.getElementById('errors').appendChild(title);
+                document.getElementById('errors').appendChild(list);
+            }
+
+            function resetAlertBox() {
+                $('#errors-box').css('display', 'none');
+                $('#upload-complete-box').css('display', 'none');
+                $('#progress-box').css('display', 'none');
+            }
+        });
+
+
+
+        //List
+        $(function() {
+            $('.btn-delete').on('click', function (event) {
+                var keyToDelete = event.target.attributes['x-id'].value;
+                $.ajax({
+                    url: "/"+keyToDelete,
+                    method: "DELETE",
+                    error: function (xhr, statusCode, errorThrown) {
+                        $('#alert-box').css('display', 'block');
+                    },
+                    success: function (data, statusCode, xhr) {
+                        $('td[x-id="'+keyToDelete+'"]').html('deleted');
+                    }
+                });
+            });
         });
     </script>
 </body>
