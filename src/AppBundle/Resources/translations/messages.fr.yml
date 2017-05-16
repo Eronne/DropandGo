@@ -1,3 +1,7 @@
+#TILE OF PAGES
+page:
+  register: S'inscrire
+
 #TEMPLATE.HTML.TWIG
 nav:
   home: Accueil
@@ -8,13 +12,13 @@ nav:
   logout: Se déconnecter
 
 footer:
-  description: Description du footer en français
+  description: Une solution simple et efficace pour stocker vos fichiers en ligne.
   links:
-    title: Titre en français
-    first: Premier
-    second: Deuxième
-    third: Troisième
-    fourth: Quatrième
+    title: Navigation
+    first: Page d'accueil
+    second: Page d'aide
+    third: S'inscrire
+    fourth: Se connecter
   copyright:
     title: Langues
     fr: Français

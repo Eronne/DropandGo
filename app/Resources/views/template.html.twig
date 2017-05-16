@@ -20,6 +20,8 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.css') }}"  media="screen,projection"/>
         {# Import material font #}
         <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }} ">
+        {# Import style app #}
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     {% endblock %}
 </head>
 
@@ -68,11 +70,12 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Drop&Go</h5>
-                    <p class="grey-text text-lighten-4">{{ 'footer.description' | trans }}</p>
+                    <p class="grey-text text-lighten-4 flow-text">{{ 'footer.description' | trans }}</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">{{ 'footer.links.title' | trans }}</h5>
                     <ul>
+                        {# Todo: ajouter les variables locales dans les liens #}
                         <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.first' | trans }}</a></li>
                         <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.second' | trans }}</a></li>
                         <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.third' | trans }}</a></li>
@@ -84,7 +87,7 @@
         <div class="footer-copyright yellow darken-2">
             <div class="container">
                 {# Dropdown button for language #}
-                <a class='dropdown-button btn right' href='#' data-activates='dropdown1'>{{ 'footer.copyright.title' | trans }}</a>
+                <a class='dropdown-button btn right  yellow darken-3' href='#' data-activates='dropdown1'>{{ 'footer.copyright.title' | trans }}</a>
                 <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'fr' })) }}">{{ 'footer.copyright.fr' | trans }}</a></li>
                     <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'en' })) }}">{{ 'footer.copyright.en' | trans }}</a></li>
@@ -99,14 +102,15 @@
         {# Import jQuery #}
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-        {# Import materialize.min.js #}
-        <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
         {# Slide menu for mobile view #}
         <script>
             $(".button-collapse").sideNav();
         </script>
 
         <script src="js/vendor.js"></script>
+
+        {# Import materialize.min.js #}
+        <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
     {% endblock %}
 </body>
 </html>

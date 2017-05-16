@@ -1,3 +1,8 @@
+#TILE OF PAGES
+#Todo: Put locales variables for FOSUser pages
+page:
+  register: Sign up
+
 nav:
   home: Home
   access: Go to Drop&Go
@@ -7,17 +12,18 @@ nav:
   logout: Logout
 
 footer:
-  description: Description of the footer in english
+  description: A simple and efficient solution to store your files online
   links:
-    title: Title in English
-    first: First
-    second: Second
-    third: Third
-    fourth: Fourth
+    title: Navigation
+    first: Homepage
+    second: Help
+    third: Sign up
+    fourth: Login
   copyright:
     title: Languages
     fr: French
     en: English
+
 
 
 #INDEX.HTML.TWIG
