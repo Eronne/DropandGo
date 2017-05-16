@@ -84,7 +84,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/{key}", name="download", methods={"GET"})
+     * @Route("download/{key}", name="download", methods={"GET"})
      * @param string $key
      * @return Response
      * @throws NotFoundHttpException
@@ -92,6 +92,7 @@ class DefaultController extends Controller
     public function downloadAction($key)
     {
         $file = $this->getDoctrine()->getRepository('AppBundle:File')->findOneBy(['key' => $key]);
+
         if (!$file) {
             throw $this->createNotFoundException('File does not exists.');
         }

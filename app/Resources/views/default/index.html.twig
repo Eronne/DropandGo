@@ -3,23 +3,41 @@
 {% block title %}Bienvenue !{% endblock %}
 
 {% block body %}
-    <div class="container">
-        {# Visu 1 #}
-        <div class="">
+    <div class="parallax-container">
+        <div class="parallax"><img src="{{ asset('img/parallax1.jpg') }}"></div>
+    </div>
+    <div class="section white">
+        <div class="row container">
             <h1>{{ 'd1.title' | trans }}</h1>
             <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn">{{ 'd1.button' | trans }}</a>
         </div>
-
-        {# Visu 2 #}
-        <div class="">
+    </div>
+    <div class="parallax-container">
+        <div class="parallax"><img src="images/parallax2.jpg"></div>
+    </div>
+    <div class="section white">
+        <div class="row container">
             <h2>{{ 'd2.title' | trans }}</h2>
             <p>{{ 'd2.text' | trans }}</p>
         </div>
-
-        {# Visu 3 #}
-        <div class="">
+    </div>
+    <div class="parallax-container">
+        <div class="parallax"><img src="images/parallax2.jpg"></div>
+    </div>
+    <div class="section white">
+        <div class="row container">
             <h1>{{ 'd3.title' | trans }}</h1>
             <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn">{{ 'd3.button' | trans }}</a>
         </div>
     </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function(){
+            $('.parallax').parallax();
+        });
+    </script>
 {% endblock %}
