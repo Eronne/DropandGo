@@ -7,110 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Drop&Go - {% block title %}{% endblock %}</title>
 
-    {# Tab's color for chrome mobile #}
+    {# Tab's color for chrome on mobile #}
     <meta name="theme-color" content="#5c6bc0">
 
     {% block stylesheets %}
         {# Favicon #}
         <link rel="icon" type="image/png" href="favicon.png" />
-
         {# Import Google Icon Font #}
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         {# Import materialize.min.css #}
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.css') }}"  media="screen,projection"/>
-        {# Import material font #}
-        <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }} ">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/semantic.min.css') }}"  media="screen,projection"/>
         {# Import style app #}
         <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     {% endblock %}
 </head>
 
 <body>
-    {# Navigation | color for nav links : #414b83#}
-    <nav>
-        <div class="nav-wrapper white">
-            {% if app.user %}
-                <a href="{{ path('homepage') }}" class="brand-logo">&nbsp;Drop&Go&nbsp;</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ path('storage') }}">{{ 'nav.access' | trans }}</a></li>
-                    <li><a href="{{ path('help') }}">{{ 'nav.help' | trans }}</a></li>
-                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_logout') }}">{{ 'nav.logout' | trans }}</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>{{ 'nav.home' | trans }}</a></li>
-                    <li><a href="{{ path('storage') }}"><i class="zmdi zmdi-cloud"></i>{{ 'nav.access' | trans }}</a></li>
-                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="zmdi zmdi-account-o"></i>{{ 'nav.logout' | trans }}</a></li>
-                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>{{ 'nav.help' | trans }}</a></li>
-                </ul>
-            {% else %}
-                <a href="{{ path('homepage') }}" class="brand-logo">&nbsp;Drop&Go&nbsp;</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ path('help') }}">{{ 'nav.help' | trans }}</a></li>
-                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_registration_register') }}">{{ 'nav.signup' | trans }}</a></li>
-                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_login') }}">{{ 'nav.login' | trans }}</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>{{ 'nav.home' | trans }}</a></li>
-                    <li><a href="{{ path('fos_user_registration_register') }}"><i class="zmdi zmdi-account-add"></i>{{ 'nav.signup' | trans }}</a></li>
-                    <li><a href="{{ path('fos_user_security_login') }}"><i class="zmdi zmdi-account"></i>{{ 'nav.login' | trans }}</a></li>
-                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>{{ 'nav.help' | trans }}</a></li>
-                </ul>
-            {% endif %}
-        </div>
-    </nav>
+    {# Navigation #}
 
 
-    {% block body %}{% endblock %}
+    {# Content of pages #}
+    <div class="pusher">
+        {% block body %}{% endblock %}
+    </div>
 
-
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Drop&Go</h5>
-                    <p class="grey-text text-lighten-4 flow-text">{{ 'footer.description' | trans }}</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">{{ 'footer.links.title' | trans }}</h5>
-                    <ul>
-                        {# Todo: ajouter les variables locales dans les liens #}
-                        <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.first' | trans }}</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.second' | trans }}</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.third' | trans }}</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">{{ 'footer.links.fourth' | trans }}</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright yellow darken-2">
-            <div class="container">
-                {# Dropdown button for language #}
-                <a class='dropdown-button btn right  yellow darken-3' href='#' data-activates='dropdown1'>{{ 'footer.copyright.title' | trans }}</a>
-                <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'fr' })) }}">{{ 'footer.copyright.fr' | trans }}</a></li>
-                    <li><a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'en' })) }}">{{ 'footer.copyright.en' | trans }}</a></li>
-                </ul>
-
-                <a class="waves-effect waves-teal btn-flat left" href="https://github.com/Eronne"><i class="zmdi zmdi-github"></i> Erwann Letue</a>
-            </div>
-        </div>
-    </footer>
 
     {% block javascripts %}
         {# Import jQuery #}
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-        {# Slide menu for mobile view #}
-        <script>
-            $(".button-collapse").sideNav();
-        </script>
-
-        <script src="js/vendor.js"></script>
+        <script src="{{ asset('js/vendor.js') }}"></script>
 
         {# Import materialize.min.js #}
-        <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/semantic.min.js') }}"></script>
     {% endblock %}
 </body>
 </html>

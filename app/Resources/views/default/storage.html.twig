@@ -49,7 +49,6 @@
         <div class="modal-content">
             <h4>Mettre un fichier en ligne</h4>
 
-            <h2>Upload file</h2>
             <form id="upload-form">
                 <div class="form-group">
                     <label for="file">File</label> <input id="file" type="file" name="file">
@@ -70,24 +69,24 @@
                 <div class="alert alert-success" id="upload-complete"></div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Envoyer<i class="material-icons right">send</i>
-            </button>
-            <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Retour</a>
-        </div>
+        {#<div class="modal-footer">#}
+            {#<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Envoyer<i class="material-icons right">send</i>#}
+            {#</button>#}
+            {#<a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Retour</a>#}
+        {#</div>#}
     </div>
 
 
 
     <div class="container">
         <div class="row">
-            <h2>Les fichiers mis en ligne par {{ app.user }}</h2>
+            <h2>Fichiers mis en ligne par {{ app.user }}</h2>
             <div style="display: none" id="alert-box">
                 <div class="alert alert-danger">File does not longer exists.</div>
             </div>
 
             {% for file in files %}
-                <div class="col s12 m7">
+                <div class="col s12 m12">
                     <div class="card horizontal">
                         <div class="card-image">
                             <img src="http://lorempixel.com/100/190/nature/6">
@@ -98,8 +97,8 @@
                             </div>
                             <div class="card-action">
                                 {% if not file.deleted %}
-                                    <a class="btn btn-primary btn-sm" href="{{ path('download', {"key": file.key}) }}">download</a>
-                                    <button x-id="{{ file.key }}" class="btn btn-danger btn-sm btn-delete">delete</button>
+                                    <a class="btn btn-primary btn-sm" href="{{ path('download', {"key": file.key}) }}">Télécharger</a>
+                                    <button x-id="{{ file.key }}" class="btn btn-danger btn-sm btn-delete">Supprimer</button>
                                 {% else %}
                                     deleted
                                 {% endif %}

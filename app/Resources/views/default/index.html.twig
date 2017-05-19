@@ -3,38 +3,23 @@
 {% block title %}Bienvenue !{% endblock %}
 
 {% block body %}
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('img/parallax11.jpg') }}"></div>
+    <div class="home">
+        <p>Test</p>
     </div>
-    <div class="section white row container">
+
+    <div class="">
         <h1>{{ 'd1.title' | trans }}</h1>
         <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn-large yellow darken-2">{{ 'd1.button' | trans }}</a>
     </div>
 
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('img/parallax2.jpg') }}"></div>
-    </div>
-    <div class="section white row container">
+    <div class="">
         <h2>{{ 'd2.title' | trans }}</h2>
         <hr>
         <p class="flow-text">{{ 'd2.text' | trans }}</p>
     </div>
 
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ asset('img/parallax3.jpg') }}"></div>
-    </div>
-    <div class="section white row container">
+    <div class="">
         <h1>{{ 'd3.title' | trans }}</h1>
         <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn-large yellow darken-2">{{ 'd3.button' | trans }}</a>
     </div>
-{% endblock %}
-
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        $(document).ready(function(){
-            $('.parallax').parallax();
-        });
-    </script>
 {% endblock %}
