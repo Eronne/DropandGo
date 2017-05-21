@@ -1,0 +1,30 @@
+{# Desktop menu #}
+<div class="home-menu ui inverted secondary pointing menu menu-lg">
+    <div class="menu menu-left">
+        {# Todo: Put active class #}
+        <a href="{{ path('homepage') }}" class="item">{{ 'nav.home' | trans() }}</a>
+        <a href="{{ path('help') }}" class="item">{{ 'nav.help' | trans() }}</a>
+    </div>
+
+    <div class="menu menu-right">
+        {% if app.user %}
+            <a href="{{ path('storage') }}" class="item ui inverted button" style="margin-right: 16px">{{ 'nav.access' | trans() }}</a>
+            <a href="{{ path('fos_user_security_logout') }}" class="item ui inverted button">{{ 'nav.logout' | trans() }}</a>
+        {% else %}
+            <a href="{{ path('fos_user_registration_register') }}" class="item ui inverted button" style="margin-right: 16px">{{ 'nav.signup' | trans() }}</a>
+            <a href="{{ path('fos_user_security_login') }}" class="item ui inverted button">{{ 'nav.login' | trans() }}</a>
+        {% endif %}
+    </div>
+</div>
+
+{# Mobile menu #}
+<div class="home-menu ui inverted secondary pointing menu menu-sm">
+    <div class="menu menu-left">
+        <a href="#"class="show-sidebar"><i class="bars icon"></i>
+        </a>
+    </div>
+
+    <div class="menu menu-right">
+        <a href="{{ path('homepage') }}">Drop&Go</a>
+    </div>
+</div>

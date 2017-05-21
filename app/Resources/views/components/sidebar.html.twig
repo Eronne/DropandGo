@@ -1,0 +1,13 @@
+{# Navigation sidebar #}
+<div class="ui sidebar inverted vertical menu">
+    <a href="{{ path('homepage') }}" class="item">{{ 'nav.home' | trans() }}</a>
+    <a href="{{ path('help') }}" class="item">{{ 'nav.help' | trans() }}</a>
+
+    {% if app.user %}
+        <a href="{{ path('storage') }}" class="item" style="margin-right: 16px">{{ 'nav.access' | trans() }}</a>
+        <a href="{{ path('fos_user_security_logout') }}" class="item">{{ 'nav.logout' | trans() }}</a>
+    {% else %}
+        <a href="{{ path('fos_user_registration_register') }}" class="item" style="margin-right: 16px">{{ 'nav.signup' | trans() }}</a>
+        <a href="{{ path('fos_user_security_login') }}" class="item">{{ 'nav.login' | trans() }}</a>
+    {% endif %}
+</div>

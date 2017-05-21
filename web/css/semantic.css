@@ -7162,8 +7162,8 @@ a.ui.inverted.grey.header:hover {
 
 @font-face {
   font-family: 'Icons';
-  src: url("./themes/default/assets/fonts/icons.eot");
-  src: url("./themes/default/assets/fonts/icons.eot?#iefix") format('embedded-opentype'), url("./themes/default/assets/fonts/icons.woff2") format('woff2'), url("./themes/default/assets/fonts/icons.woff") format('woff'), url("./themes/default/assets/fonts/icons.ttf") format('truetype'), url("./themes/default/assets/fonts/icons.svg#icons") format('svg');
+  src: url("../fonts/semantic/icons.eot");
+  src: url("../fonts/semantic/icons.eot?#iefix") format('embedded-opentype'), url("../fonts/semantic/fonts/icons.woff2") format('woff2'), url("../fonts/semantic/icons.woff") format('woff'), url("../fonts/semantic/icons.ttf") format('truetype'), url("../fonts/semantic/icons.svg#icons") format('svg');
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -20867,13 +20867,13 @@ ol.ui.horizontal.list li:before,
   min-height: 2.85714286em;
 }
 
-.ui.menu:after {
-  content: '';
-  display: block;
-  height: 0px;
-  clear: both;
-  visibility: hidden;
-}
+/*.ui.menu:after {*/
+  /*content: '';*/
+  /*display: block;*/
+  /*height: 0px;*/
+  /*clear: both;*/
+  /*visibility: hidden;*/
+/*}*/
 
 .ui.menu:first-child {
   margin-top: 0rem;
@@ -21839,7 +21839,6 @@ Floated Menu / Item
 .ui.secondary.pointing.menu {
   margin-left: 0em;
   margin-right: 0em;
-  border-bottom: 2px solid rgba(34, 36, 38, 0.15);
 }
 
 .ui.secondary.pointing.menu .item {
@@ -21936,15 +21935,6 @@ Floated Menu / Item
 }
 
 /* Inverted */
-
-.ui.secondary.inverted.pointing.menu {
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.ui.secondary.inverted.pointing.menu {
-  border-width: 2px;
-  border-color: rgba(34, 36, 38, 0.15);
-}
 
 .ui.secondary.inverted.pointing.menu .item {
   color: rgba(255, 255, 255, 0.9);

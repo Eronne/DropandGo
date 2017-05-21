@@ -1,40 +1,46 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="row">
-    <div class="panel">
-        <form action="{{ path("fos_user_security_check") }}" method="post">
-            {% if csrf_token %}
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-            {% endif %}
+<div class="main">
+    <div class="full-page">
+        {% include 'components/menu.html.twig' %}
 
-            <h1>Se connecter</h1>
+        <div class="panel">
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="ui form">
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
 
-            <div class="input-field col s11">
-                <i class="zmdi zmdi-account prefix"></i>
-                <input class="validate" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-                <label for="username" data-error="Le nom d'utilisateur est incorrecte">{{ 'security.login.username'|trans }}</label>
-            </div>
+                <h1>Se connecter</h1>
 
-            <div class="input-field col s11">
-                <i class="zmdi zmdi-lock prefix"></i>
-                <input class="validate" type="password" id="password" name="_password" required="required" />
-                <label for="password" data-error="Le mot de passe est incorrecte">{{ 'security.login.password'|trans }}</label>
-            </div>
+                <div class="field">
+                    <label for="username">{{ 'security.login.username'|trans }}</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Nom d'utilisateur"/>
+                </div>
 
-            <div>
-                {#<div class="input-field col s11">#}
+                <div class="field">
+                    <label for="password">{{ 'security.login.password'|trans }}</label>
+                    <input type="password" id="password" name="_password" required="required" placeholder="Mot de passe"/>
+                </div>
+
+                <div>
+                    {#<div class="input-field col s11">#}
                     {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
                     {#<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>#}
-                {#</div>#}
+                    {#</div>#}
 
-                {# Todo: forgotten password #}
+                    {# Todo: forgotten password #}
 
-                <div class="input-field col s11 center">
-                    <button class="btn waves-effect waves-light" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">Se connecter
-                        <i class="material-icons right">send</i>
-                    </button>
+                    <div>
+                        <button class="ui button teal" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">Se connecter</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+
+        <div class="languages">
+            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'fr' })) }}" class="ui inverted basic button">Français</a>
+            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'en' })) }}" class="ui inverted basic button">English</a>
+        </div>
+
     </div>
 </div>

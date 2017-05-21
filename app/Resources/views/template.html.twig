@@ -8,26 +8,21 @@
     <title>Drop&Go - {% block title %}{% endblock %}</title>
 
     {# Tab's color for chrome on mobile #}
-    <meta name="theme-color" content="#5c6bc0">
+    <meta name="theme-color" content="#1b1c1d">
 
     {% block stylesheets %}
         {# Favicon #}
         <link rel="icon" type="image/png" href="favicon.png" />
-        {# Import Google Icon Font #}
-        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        {# Import materialize.min.css #}
-        <link type="text/css" rel="stylesheet" href="{{ asset('css/semantic.min.css') }}"  media="screen,projection"/>
-        {# Import style app #}
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/semantic.css') }}"  media="screen,projection"/>
+        <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     {% endblock %}
 </head>
 
 <body>
-    {# Navigation #}
+    {% include 'components/sidebar.html.twig' %}
 
-
-    {# Content of pages #}
     <div class="pusher">
+        {# Content of pages #}
         {% block body %}{% endblock %}
     </div>
 
@@ -40,6 +35,10 @@
 
         {# Import materialize.min.js #}
         <script type="text/javascript" src="{{ asset('js/semantic.min.js') }}"></script>
+
+        <script>
+            $('.ui.sidebar').sidebar('attach events', '.show-sidebar', 'show');
+        </script>
     {% endblock %}
 </body>
 </html>

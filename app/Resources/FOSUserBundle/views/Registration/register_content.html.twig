@@ -1,15 +1,23 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="row">
-    <div class="panel">
-        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+<div class="main">
+    <div class="full-page">
+        {% include 'components/menu.html.twig' %}
+
+        <div class="panel">
+            {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
             <h1>S'inscrire</h1>
 
             {{ form_widget(form) }}
 
-            <div>
-                <input type="submit" value="{{ 'registration.submit'|trans }}" />
-            </div>
-        {{ form_end(form) }}
+            <input class="ui button teal" type="submit" value="{{ 'registration.submit'|trans }}" />
+            {{ form_end(form) }}
+        </div>
+
+        <div class="languages">
+            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'fr' })) }}" class="ui inverted basic button">Français</a>
+            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'en' })) }}" class="ui inverted basic button">English</a>
+        </div>
+
     </div>
 </div>

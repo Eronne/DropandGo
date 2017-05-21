@@ -12,36 +12,35 @@ nav:
   logout: Se déconnecter
 
 footer:
-  description: Une solution simple et efficace pour stocker vos fichiers en ligne.
+  grp2:
+    title: Langues
   links:
     title: Navigation
     first: Page d'accueil
     second: Page d'aide
     third: S'inscrire
     fourth: Se connecter
-  copyright:
-    title: Langues
-    fr: Français
-    en: Anglais
+  description: Une solution simple et efficace pour stocker vos fichiers en ligne.
 
 
 
 #INDEX.HTML.TWIG
-d1:
+intro:
   title: Vos fichiers accessibles n'importe où, quand vous voulez
   button: S'inscrire
-d2:
+d1:
   title: Stockez n'importe quel type de fichier afin de les rendre accessible de n'importe où de manière sécurisée.
-  text: Depuis votre ordinateur, votre téléphone ou encore votre tablette, il vous sera possible d'avoir accès à vos fichiers mis en ligne sur Drop&Go.
-
+d2:
+  title: Depuis votre ordinateur, votre téléphone ou encore votre tablette, il vous sera possible d'avoir accès à vos fichiers mis en ligne sur Drop&Go.
 d3:
   title: Essayer Drop&Go, ce service est gratuit !
   button: S'inscrire sur Drop&Go
 
 
 
-#LOGIN (FOSUSER TEMPLATE)
-
+#LOGIN
+login:
+  title: Se connecter
 
 
 

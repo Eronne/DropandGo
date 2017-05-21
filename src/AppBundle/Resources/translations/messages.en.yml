@@ -12,28 +12,26 @@ nav:
   logout: Logout
 
 footer:
-  description: A simple and efficient solution to store your files online
+  grp2:
+    title: Languages
   links:
     title: Navigation
     first: Homepage
     second: Help
     third: Sign up
     fourth: Login
-  copyright:
-    title: Languages
-    fr: French
-    en: English
+  description: A simple and efficient solution to store your files online
 
 
 
 #INDEX.HTML.TWIG
-d1:
+intro:
   title: Your files accessible everywhere, when you want !
   button: Sign up !
-d2:
+d1:
   title: Stock any file type to access them everywhere securely.
-  text: From your computer, your mobile phone or even your tablet, you will have access to your online file stocked on Drop&Go.
-
+d2:
+  title: From your computer, your mobile phone or even your tablet, you will have access to your online file stocked on Drop&Go.
 d3:
   title: Try Drop&Go, this service is free !
   button: Sign up on Drop&Go

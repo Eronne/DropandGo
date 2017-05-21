@@ -4,22 +4,52 @@
 
 {% block body %}
     <div class="home">
-        <p>Test</p>
+        <div class="overlay">
+            {% include 'components/menu.html.twig' %}
+
+            <div class="intro">
+                <h1>{{ 'intro.title' | trans }}</h1>
+                <a href="{{ path('fos_user_registration_register') }}" class="ui teal big button">{{ 'intro.button' | trans }}</a>
+            </div>
+        </div>
+
+        {# Arrow to smooth scroll #}
+        <a class="arrow-wrap" href="#presentation">
+            <span class="arrow"></span>
+        </a>
     </div>
 
-    <div class="">
-        <h1>{{ 'd1.title' | trans }}</h1>
-        <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn-large yellow darken-2">{{ 'd1.button' | trans }}</a>
+
+    <div class="ui stackable two column grid" id="presentation">
+        <div class="row">
+            <div class="column">
+                <img src="{{ asset('img/homepage/computer.png') }}" alt="">
+            </div>
+            <div class="column">
+                <h2>{{ 'd1.title' | trans }}</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <h2>{{ 'd2.title' | trans }}</h2>
+            </div>
+            <div class="column">
+                <img src="{{ asset('img/homepage/devices.png') }}" alt="">
+            </div>
+        </div>
     </div>
 
-    <div class="">
-        <h2>{{ 'd2.title' | trans }}</h2>
-        <hr>
-        <p class="flow-text">{{ 'd2.text' | trans }}</p>
-    </div>
-
-    <div class="">
+    <div class="try">
         <h1>{{ 'd3.title' | trans }}</h1>
-        <a href="{{ path('fos_user_registration_register') }}" class="waves-effect waves-light btn-large yellow darken-2">{{ 'd3.button' | trans }}</a>
+        <a href="{{ path('fos_user_registration_register') }}" class="ui teal button">{{ 'd3.button' | trans }}</a>
     </div>
+
+    {% include 'components/footer.html.twig' %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/app.js') }}"></script>
 {% endblock %}
