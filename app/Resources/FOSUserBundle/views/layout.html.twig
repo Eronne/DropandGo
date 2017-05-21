@@ -30,11 +30,14 @@
 
 {% block javascripts %}
     {{ parent() }}
-    {% if error is defined and error %}
-        <script>
-            jQuery(document).ready(function () {
-                Materialize.toast("{{ error.messageKey|trans(error.messageData, 'security')}}", 4000);
-            });
-        </script>
-    {% endif %}
+    <script>
+        $('.message .close')
+            .on('click', function() {
+                $(this)
+                    .closest('.message')
+                    .transition('fade')
+                ;
+            })
+        ;
+    </script>
 {% endblock %}

@@ -1,41 +1,18 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Drop&Go - Storage</title>
+{% extends 'template.html.twig' %}
 
-    {# Tab's color for chrome mobile #}
-    <meta name="theme-color" content="#5c6bc0">
+{% block body %}
+    <div class="ui top fixed menu">
+        <a href="{{ path('homepage') }}" class="item">Drop&Go</a>
+        <a href="{{ path('help') }}" class="item">Aide</a>
 
-    {# Favicon #}
-    <link rel="icon" type="image/png" href="favicon.png" />
-
-    {# Import Google Icon Font #}
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    {# Import materialize.min.css #}
-    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.css') }}"  media="screen,projection"/>
-    {# Import material font #}
-    <link rel="stylesheet" href="{{ asset('css/material-design-iconic-font.min.css') }} ">
-</head>
-<body>
-    <nav>
-        <div class="nav-wrapper white">
-                <a href="{{ path('homepage') }}" class="brand-logo">&nbsp;Drop&Go&nbsp;</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ path('help') }}">Aide</a></li>
-                    <li><a class="waves-effect waves-light btn yellow darken-2" href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{ path('homepage') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
-                    <li><a href="{{ path('help') }}"><i class="zmdi zmdi-help"></i>Aide</a></li>
-                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="zmdi zmdi-account-o"></i>Se déconnecter</a></li>
-                </ul>
-        </div>
-    </nav>
+        {% if app.user %}
+            <a href="{{ path('storage') }}" class="item">{{ 'nav.access' | trans() }}</a>
+            <a href="{{ path('fos_user_security_logout') }}" class="item">{{ 'nav.logout' | trans() }}</a>
+        {% else %}
+            <a href="{{ path('fos_user_registration_register') }}" class="item">{{ 'nav.signup' | trans() }}</a>
+            <a href="{{ path('fos_user_security_login') }}" class="item">{{ 'nav.login' | trans() }}</a>
+        {% endif %}
+    </div>
 
 
 
@@ -70,9 +47,9 @@
             </div>
         </div>
         {#<div class="modal-footer">#}
-            {#<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Envoyer<i class="material-icons right">send</i>#}
-            {#</button>#}
-            {#<a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Retour</a>#}
+        {#<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Envoyer<i class="material-icons right">send</i>#}
+        {#</button>#}
+        {#<a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Retour</a>#}
         {#</div>#}
     </div>
 
@@ -109,24 +86,10 @@
             {% endfor %}
         </div>
     </div>
+{% endblock %}
 
-
-
-    {# Import jQuery #}
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-    {# Import materialize.min.js #}
-    <script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
-    {# Slide menu for mobile view #}
+{% block javascripts %}
     <script>
-        $(".button-collapse").sideNav();
-
-        $(document).ready(function(){
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-            $('.modal').modal();
-        });
-
-
         {# Upload #}
         $(function () {
             document.getElementById('progress-value').style = "width: 0%";
@@ -208,5 +171,4 @@
             });
         });
     </script>
-</body>
-</html>
+{% endblock %}

@@ -1,7 +1,7 @@
 {# Footer #}
-<div class="ui inverted vertical footer segment">
-    <div class="ui center aligned container">
-        <div class="ui stackable inverted divided grid">
+<div class="ui inverted vertical footer segment" style="padding: 4% 0">
+    <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
             <div class="three wide column">
                 <h4 class="ui inverted header">{{ 'footer.links.title' | trans() }}</h4>
                 <div class="ui inverted link list">
@@ -19,16 +19,11 @@
                 </div>
             </div>
             <div class="seven wide column">
-                <h3 class="ui inverted header">Drop&Go</h3>
+                <h4 class="ui inverted header"><a class="item" href="https://github.com/Eronne/DropandGo" style="color: #fff;">Drop&Go - Eronne <i class="github icon"></i></a></h4>
                 <p>{{ 'footer.description' | trans() }}</p>
+                <a href="{{ path('fos_user_registration_register') }}" class="ui teal basic button">S'inscrire</a>
+                <a href="{{ path('fos_user_security_login') }}" class="ui teal basic button">Se connecter</a>
             </div>
         </div>
-        <div class="ui inverted section divider"></div>
-        <h1>Drop&Go</h1>
-        <div class="ui horizontal inverted small divided link list">
-            <a class="item" href="#">Site Map</a>
-            <a class="item" href="#">Contact Us</a>
-            <a class="item" href="#">Terms and Conditions</a>
-            <a class="item" href="#">Privacy Policy</a>
-        </div>
     </div>
+</div>

@@ -12,6 +12,14 @@
 
                 <h1>Se connecter</h1>
 
+                {% if error is defined and error %}
+                    <div class="ui message">
+                        <i class="close icon"></i>
+                        <div class="header"><p>{{ error.messageKey|trans(error.messageData, 'security')}}</p></div>
+                        <p>Si vous ne possédez pas de compte, vous pouvez vous <a href="{{ path('fos_user_registration_register') }}">en créer un.</a></p>
+                    </div>
+                {% endif %}
+
                 <div class="field">
                     <label for="username">{{ 'security.login.username'|trans }}</label>
                     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="Nom d'utilisateur"/>
@@ -41,6 +49,5 @@
             <a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'fr' })) }}" class="ui inverted basic button">Français</a>
             <a href="{{ path(app.request.get('_route'), app.request.get('_route_params') | merge({'_locale' : 'en' })) }}" class="ui inverted basic button">English</a>
         </div>
-
     </div>
 </div>

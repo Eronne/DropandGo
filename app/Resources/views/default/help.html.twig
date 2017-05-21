@@ -2,90 +2,122 @@
 
 {% block title %}Aide{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/help.css') }}">
+{% endblock %}
+
 {% block body %}
-    <div class="container">
+    <div class="ui top fixed menu">
+        <a href="{{ path('homepage') }}" class="item">Drop&Go</a>
+        <a href="{{ path('help') }}" class="item">Aide</a>
+
+        {% if app.user %}
+            <a href="{{ path('storage') }}" class="item">{{ 'nav.access' | trans() }}</a>
+            <a href="{{ path('fos_user_security_logout') }}" class="item">{{ 'nav.logout' | trans() }}</a>
+        {% else %}
+            <a href="{{ path('fos_user_registration_register') }}" class="item">{{ 'nav.signup' | trans() }}</a>
+            <a href="{{ path('fos_user_security_login') }}" class="item">{{ 'nav.login' | trans() }}</a>
+        {% endif %}
+    </div>
+
+    <div class="main">
         <h1>Drop&Go - {{ 'title' | trans }}</h1>
 
-
-        <ul class="collapsible popout" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-account-add"></i>{{ 'collapsible1.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <p>{{ 'collapsible1.body' | trans({'%link_start%' : '<a href="'~path('fos_user_registration_register')~'">', '%link_end%' : '</a>'}) | raw }}</p>
-                    <p>Il vous faudra ensuite remplir le formulaire d'inscriptoin et le tour sera joué !</p>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-account"></i>{{ 'collapsible2.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <p>{{ 'collapsible2.body1' | trans({'%link_start%' : '<a href="'~path('fos_user_security_login')~'">', '%link_end%' : '</a>'}) | raw }}</p>
-                    <p>{{ 'collapsible2.body2' | trans }}</p>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-account-o"></i>{{ 'collapsible3.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <p>{{ 'collapsible3.body1' | trans }}</p>
-                    <p>{{ 'collapsible3.body2' | trans({'%link_start%' : '<a href="'~path('fos_user_security_logout')~'">', '%link_end%' : '</a>'}) | raw }}</p>
-                    <p>{{ 'collapsible3.body3' | trans }}</p>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-globe"></i>{{ 'collapsible4.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <p>{{ 'collapsible4.body1' | trans }}</p>
-                    <p>{{ 'collapsible4.body2' | trans }}</p>
-                    {# Todo : Modifier les liens de changement de langue #}
-                    <p>{{ 'collapsible4.body3' | trans({'%link1_start%' : '<a href="'~path('homepage')~'">', '%link1_end%' : '</a>'}) | trans({'%link2_start%' : '<a href="'~path('help')~'">', '%link2_end%' : '</a>'}) | raw }}</p>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-cloud"></i>{{ 'collapsible5.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <p>{{ 'collapsible5.body1' | trans({'%link_start%' : '<a href="'~path('storage')~'">', '%link_end%' : '</a>'}) | raw }}</p>
-                    <p>{{ 'collapsible5.body2' | trans }}</p>
-                    <p>{{ 'collapsible5.body3' | trans({'%link1_start%' : '<a href="'~path('fos_user_security_login')~'">', '%link1_end%' : '</a>'}) | trans({'%link2_start%' : '<a href="'~path('fos_user_registration_register')~'">', '%link2_end%' : '</a>'}) | raw }}</p>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-cloud-upload"></i>{{ 'collapsible6.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-cloud-download"></i>{{ 'collapsible7.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-copy"></i>{{ 'collapsible8.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="zmdi zmdi-delete"></i>{{ 'collapsible9.header' | trans }}</div>
-                <div class="collapsible-body">
-                    <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-            </li>
-        </ul>
-
-        <br>
-        <br>
-
-        <div class="card infos">
-            <div class="card-content center">
-                <p>Pour tout autres questions, vous pouvez dès à présent <a href="#">contacter le support en ligne.</a></p>
-                <p>Nous allons résoudre votre problème en un rien de temps !</p>
+        <div class="ui styled fluid accordion">
+            {# Sign up #}
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ 'collapsible1.header' | trans }}
             </div>
-            <div class="card-content grey lighten-4 center">
-                <div>L'équipe Drop&Go pour vous servir !</div>
+            <div class="content">
+                <p class="">{{ 'collapsible1.body' | trans({'%link_start%' : '<a href="'~path('fos_user_registration_register')~'">', '%link_end%' : '</a>'}) | raw }}</p>
+                <p>Il vous faudra ensuite remplir le formulaire d'inscriptoin et le tour sera joué !</p>
+            </div>
+
+            {# Login #}
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ 'collapsible2.header' | trans }}
+            </div>
+            <div class="content">
+                <p>{{ 'collapsible2.body1' | trans({'%link_start%' : '<a href="'~path('fos_user_security_login')~'">', '%link_end%' : '</a>'}) | raw }}</p>
+                <p>{{ 'collapsible2.body2' | trans }}</p>
+            </div>
+
+            {# Logout #}
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ 'collapsible3.header' | trans }}
+            </div>
+            <div class="content">
+                <p>{{ 'collapsible3.body1' | trans }}</p>
+                <p>{{ 'collapsible3.body2' | trans({'%link_start%' : '<a href="'~path('fos_user_security_logout')~'">', '%link_end%' : '</a>'}) | raw }}</p>
+                <p>{{ 'collapsible3.body3' | trans }}</p>
+            </div>
+
+            {# Change language #}
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ 'collapsible4.header' | trans }}
+            </div>
+            <div class="content">
+                <p>{{ 'collapsible4.body1' | trans }}</p>
+                <p>{{ 'collapsible4.body2' | trans }}</p>
+                {# Todo : Modifier les liens de changement de langue #}
+                <p>{{ 'collapsible4.body3' | trans({'%link1_start%' : '<a href="'~path('homepage')~'">', '%link1_end%' : '</a>'}) | trans({'%link2_start%' : '<a href="'~path('help')~'">', '%link2_end%' : '</a>'}) | raw }}</p>
+            </div>
+
+            {# Go to Drop&Go #}
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ 'collapsible5.header' | trans }}
+            </div>
+            <div class="content">
+                <p>{{ 'collapsible5.body1' | trans({'%link_start%' : '<a href="'~path('storage')~'">', '%link_end%' : '</a>'}) | raw }}</p>
+                <p>{{ 'collapsible5.body2' | trans }}</p>
+                <p>{{ 'collapsible5.body3' | trans({'%link1_start%' : '<a href="'~path('fos_user_security_login')~'">', '%link1_end%' : '</a>'}) | trans({'%link2_start%' : '<a href="'~path('fos_user_registration_register')~'">', '%link2_end%' : '</a>'}) | raw }}</p>
+            </div>
+
+            {# Upload files #}
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ 'collapsible6.header' | trans }}
+            </div>
+            <div class="content">
+                <p>Lorem</p>
+            </div>
+
+            {# Download files #}
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ 'collapsible7.header' | trans }}
+            </div>
+            <div class="content">
+                <p>Lorem</p>
+            </div>
+
+            {# Delete files #}
+            <div class="title">
+                <i class="dropdown icon"></i>
+                {{ 'collapsible8.header' | trans }}
+            </div>
+            <div class="content">
+                <p>Lorem</p>
             </div>
         </div>
-        <br>
-        <br>
+
+        {#<p>Pour tout autres questions, vous pouvez dès à présent <a href="#">contacter le support en ligne.</a></p>#}
+        {#<p>Nous allons résoudre votre problème en un rien de temps !</p>#}
+        {#<p>L'équipe Drop&Go pour vous servir !</p>#}
     </div>
+
+    {% include 'components/footer.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('.ui.accordion').accordion();
+    </script>
 {% endblock %}
