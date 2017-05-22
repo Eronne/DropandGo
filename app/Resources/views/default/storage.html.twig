@@ -1,5 +1,12 @@
 {% extends 'template.html.twig' %}
 
+{% block title %}Storage{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/storage.css') }}">
+{% endblock %}
+
 {% block body %}
     <div class="ui top fixed menu">
         <a href="{{ path('homepage') }}" class="item">Drop&Go</a>
@@ -15,72 +22,75 @@
     </div>
 
 
-
-    {# Upload button (Modal) #}
-    <div class="fixed-action-btn horizontal click-to-toggle">
-        <a href="#modal" class="btn-floating btn-large waves-effect waves-light yellow darken-2"><i class="zmdi zmdi-cloud-upload"></i></a>
-    </div>
-
-    <!-- Modal Structure -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <h4>Mettre un fichier en ligne</h4>
-
-            <form id="upload-form">
-                <div class="form-group">
+    <div class="main">
+        {# Modal #}
+        <a href="#" class="show-modal"><i class="cloud upload icon"></i></a>
+        <div class="ui basic modal">
+            <div class="ui icon header">
+                <i class="archive icon"></i>
+                Mettre un fichier en ligne
+            </div>
+            <div class="content">
+                <form id="upload-form">
                     <label for="file">File</label> <input id="file" type="file" name="file">
-                    <input class="btn btn-primary" type="submit">
-                </div>
-            </form>
+                    <input type="submit">
+                </form>
 
-            <div id="progress-box" style="display: none;">
-                <h3>Progress</h3>
-                <div class="progress">
-                    <div id="progress-value" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="progress-box" style="display: none;">
+                    <h3>Progress</h3>
+                    <div class="progress">
+                        <div id="progress-value" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
+                <div id="errors-box" style="display: none;">
+                    <div class="alert alert-danger" id="errors"></div>
+                </div>
+                <div id="upload-complete-box" style="display: none;">
+                    <div class="alert alert-success" id="upload-complete"></div>
+                </div>
+                {#<div class="modal-footer">#}
+                {#<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Envoyer<i class="material-icons right">send</i>#}
+                {#</button>#}
+                {#<a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Retour</a>#}
+                {#</div>#}
             </div>
-            <div id="errors-box" style="display: none;">
-                <div class="alert alert-danger" id="errors"></div>
-            </div>
-            <div id="upload-complete-box" style="display: none;">
-                <div class="alert alert-success" id="upload-complete"></div>
+            <div class="actions">
+                <div class="ui red basic cancel inverted button">
+                    <i class="remove icon"></i>
+                    Retour
+                </div>
+                <div class="ui green ok inverted button">
+                    <i class="checkmark icon"></i>
+                    Mettre en <ligne></ligne>
+                </div>
             </div>
         </div>
-        {#<div class="modal-footer">#}
-        {#<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit" name="action">Envoyer<i class="material-icons right">send</i>#}
-        {#</button>#}
-        {#<a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Retour</a>#}
-        {#</div>#}
-    </div>
 
 
 
-    <div class="container">
-        <div class="row">
-            <h2>Fichiers mis en ligne par {{ app.user }}</h2>
-            <div style="display: none" id="alert-box">
-                <div class="alert alert-danger">File does not longer exists.</div>
-            </div>
+        <h2>Fichiers mis en ligne par {{ app.user }}</h2>
+        <div style="display: none" id="alert-box">
+            <div class="alert alert-danger">File does not longer exists.</div>
+        </div>
 
+        <div class="cards">
             {% for file in files %}
-                <div class="col s12 m12">
-                    <div class="card horizontal">
-                        <div class="card-image">
-                            <img src="http://lorempixel.com/100/190/nature/6">
+                <div class="ui card" href="{{ path('download', {"key": file.key}) }}">
+                    <div class="content">
+                        <div class="header"><h4>{{ file.path }}</h4></div>
+                        <div class="meta">
+                            <span class="category">{{ 'storage.key' | trans }} : {{ file.key }}</span>
                         </div>
-                        <div class="card-stacked">
-                            <div class="card-content">
-                                <h4>{{ file.path }}</h4>
-                            </div>
-                            <div class="card-action">
-                                {% if not file.deleted %}
-                                    <a class="btn btn-primary btn-sm" href="{{ path('download', {"key": file.key}) }}">Télécharger</a>
-                                    <button x-id="{{ file.key }}" class="btn btn-danger btn-sm btn-delete">Supprimer</button>
-                                {% else %}
-                                    deleted
-                                {% endif %}
-                            </div>
-                        </div>
+                    </div>
+                    <div class="extra content">
+                    <span class="right floated">
+                        {% if not file.deleted %}
+                            <a class="" href="{{ path('download', {"key": file.key}) }}"><i class="download icon"></i></a>
+                            <a x-id="{{ file.key }}" class=""><i class="delete icon"></i></a>
+                        {% else %}
+                            deleted
+                        {% endif %}
+                    </span>
                     </div>
                 </div>
             {% endfor %}
@@ -89,7 +99,16 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script>
+        {# Modal #}
+        $('.ui.modal')
+            .modal({
+                blurring: true
+            })
+            .modal('attach events', '.show-modal', 'show');
+
+
         {# Upload #}
         $(function () {
             document.getElementById('progress-value').style = "width: 0%";

@@ -1,0 +1,32 @@
+.main {
+  display: block;
+  margin: 8% auto 0 auto;
+  width: 60%; }
+  @media (max-width: 768px) {
+    .main {
+      margin: 15% auto; } }
+  .main .show-modal {
+    display: block;
+    width: 45px;
+    height: 45px;
+    padding: 13px 8px 13px 8px;
+    position: fixed;
+    bottom: 4%;
+    right: 4%;
+    color: #fff;
+    font-size: 25px;
+    background: linear-gradient(141deg, #0fb8ad 0%, #2cb5e8 75%);
+    border-radius: 50%; }
+  .main .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; }
+    .main .cards .card a {
+      font-size: 20px; }
+      .main .cards .card a .download:hover {
+        color: #2cb5e8; }
+      .main .cards .card a .delete:hover {
+        color: #e74c3c; }
+
+/*# sourceMappingURL=storage.css.map */

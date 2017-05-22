@@ -82,3 +82,9 @@ collapsible7:
 
 collapsible8:
   header: Suppression de fichiers
+
+
+
+#STORAGE.HTML.TWIG
+storage:
+  key: Clé

@@ -76,3 +76,9 @@ collapsible7:
 
 collapsible8:
   header: Delete files
+
+
+
+#STORAGE.HTML.TWIG
+storage:
+  key: Key
