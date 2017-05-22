@@ -1,3 +1,12 @@
+.menu{
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%) !important;
+  border-color: #fff !important;
+
+  a{
+    color: #fff !important ;
+  }
+}
+
 .main{
   display: block;
   margin: 8% auto 0 auto;
@@ -24,20 +33,24 @@
   }
 
   .cards{
+    margin-top: 7%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
 
-    .card a {
-      font-size: 20px;
+    .card{
+      margin: 0 0 6% 0;
 
-      .download:hover{
-        color: #2cb5e8;
-      }
+      a {
+        font-size: 20px;
 
-      .delete:hover{
-        color: #e74c3c;
+        .download:hover{
+          color: #2cb5e8;
+        }
+
+        .delete:hover{
+          color: #e74c3c;
+        }
       }
     }
   }

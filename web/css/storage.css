@@ -1,3 +1,9 @@
+.menu {
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%) !important;
+  border-color: #fff !important; }
+  .menu a {
+    color: #fff !important; }
+
 .main {
   display: block;
   margin: 8% auto 0 auto;
@@ -18,15 +24,17 @@
     background: linear-gradient(141deg, #0fb8ad 0%, #2cb5e8 75%);
     border-radius: 50%; }
   .main .cards {
+    margin-top: 7%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center; }
-    .main .cards .card a {
-      font-size: 20px; }
-      .main .cards .card a .download:hover {
-        color: #2cb5e8; }
-      .main .cards .card a .delete:hover {
-        color: #e74c3c; }
+    justify-content: space-around; }
+    .main .cards .card {
+      margin: 0 0 6% 0; }
+      .main .cards .card a {
+        font-size: 20px; }
+        .main .cards .card a .download:hover {
+          color: #2cb5e8; }
+        .main .cards .card a .delete:hover {
+          color: #e74c3c; }
 
 /*# sourceMappingURL=storage.css.map */
