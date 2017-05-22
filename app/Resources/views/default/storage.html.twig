@@ -1,6 +1,6 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}Storage{% endblock %}
+{% block title %} - Storage{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -86,7 +86,7 @@
                     <span class="right floated">
                         {% if not file.deleted %}
                             <a class="" href="{{ path('download', {"key": file.key}) }}"><i class="download icon"></i></a>
-                            <a x-id="{{ file.key }}" class=""><i class="delete icon"></i></a>
+                            <a id="{{ file.key }}" class="btn-delete" onclick="alert('Etes-vous sûr de vouloir supprimer ce fichier ?')"><i class="delete icon"></i></a>
                         {% else %}
                             deleted
                         {% endif %}
@@ -119,7 +119,9 @@
                 resetAlertBox();
 
                 var formData = new FormData();
+                formData.append("test", "tests");
                 formData.append("upload[file]", document.getElementById("file").files[0]);
+                console.log(formData.get('upload[file]'));
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", "/upload");
                 xhr.addEventListener('load', onRequestComplete, false);
@@ -142,26 +144,9 @@
             }
 
             function onRequestComplete(event) {
-                if (201 === event.explicitOriginalTarget.status){
-                    var response = JSON.parse(event.explicitOriginalTarget.response);
-                    $('#upload-complete').append('Upload complete: <a href="/'+response.key+'">download key '+response.key+'</a>');
-
-                    return;
+                if(event.target.status === 201) {
+                    location.reload();
                 }
-
-                var errors = JSON.parse(event.explicitOriginalTarget.response);
-                $('#errors-box').css('display', 'block');
-                $('#upload-complete-box').css('display', 'none');
-                var list = document.createElement('ul');
-                for(var i = 0; i < errors.length; i++) {
-                    var item = document.createElement('li');
-                    item.appendChild(document.createTextNode(errors[i]));
-                    list.appendChild(item);
-                }
-                var title = document.createElement('span');
-                title.textContent = "Error found";
-                document.getElementById('errors').appendChild(title);
-                document.getElementById('errors').appendChild(list);
             }
 
             function resetAlertBox() {
@@ -173,10 +158,9 @@
 
 
 
-        //List
         $(function() {
-            $('.btn-delete').on('click', function (event) {
-                var keyToDelete = event.target.attributes['x-id'].value;
+            $('.btn-delete').on('click', function () {
+                var keyToDelete = $(this).attr('id');
                 $.ajax({
                     url: "/"+keyToDelete,
                     method: "DELETE",
@@ -184,7 +168,7 @@
                         $('#alert-box').css('display', 'block');
                     },
                     success: function (data, statusCode, xhr) {
-                        $('td[x-id="'+keyToDelete+'"]').html('deleted');
+                        $('a#'+keyToDelete+'').parent().parent().parent().remove();
                     }
                 });
             });
