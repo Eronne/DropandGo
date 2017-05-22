@@ -49,7 +49,7 @@ class DefaultController extends Controller
     public function storageAction()
     {
         //For listing
-        $files = $this->getDoctrine()->getRepository('AppBundle:File')->findBy(array('deleted' => 'true'));
+        $files = $this->getDoctrine()->getRepository('AppBundle:File')->findBy(array('deleted' => false));
         $files = array_map(function ($elt) {
             $elt->setPath(pathinfo($elt->getPath(), PATHINFO_BASENAME));
 
