@@ -2,6 +2,7 @@
 page:
   welcome: Welcome!
   register: Sign up
+  login: Login
 
 #MENU
 nav:
@@ -41,6 +42,11 @@ d3:
   title: Try Drop&Go, this service is free !
   button: Sign up on Drop&Go
 
+
+
+#LOGIN
+login:
+  title: Login
 
 
 #HELP.HTML.TWIG

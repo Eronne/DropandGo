@@ -2,6 +2,7 @@
 page:
   welcome: Bienvenue !
   register: S'inscrire
+  login: Se connecter
 
 #MENU
 nav:

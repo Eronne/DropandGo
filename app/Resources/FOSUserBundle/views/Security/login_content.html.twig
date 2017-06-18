@@ -10,7 +10,7 @@
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                 {% endif %}
 
-                <h1>Se connecter</h1>
+                <h1>{{ 'layout.login' | trans }}</h1>
 
                 {% if error is defined and error %}
                     <div class="ui message">
@@ -31,15 +31,9 @@
                 </div>
 
                 <div>
-                    {#<div class="input-field col s11">#}
-                    {#<input type="checkbox" id="remember_me" name="_remember_me" value="on" />#}
-                    {#<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>#}
-                    {#</div>#}
-
                     {# Todo: forgotten password #}
-
                     <div>
-                        <button class="ui button teal" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">Se connecter</button>
+                        <button class="ui button teal" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}">{{ 'layout.login' | trans }}</button>
                     </div>
                 </div>
             </form>
