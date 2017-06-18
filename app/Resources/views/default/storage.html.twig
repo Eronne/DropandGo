@@ -83,7 +83,7 @@
                     <span class="right floated">
                         {% if not file.deleted %}
                             <a class="" href="{{ path('download', {"key": file.key}) }}"><i class="download icon"></i></a>
-                            <a id="{{ file.key }}" class="btn-delete" onclick="alert('Etes-vous sûr de vouloir supprimer ce fichiers ?')"><i class="delete icon"></i></a>
+                            <a id="{{ file.key }}" class="btn-delete" onclick="confirm('Etes-vous sûr de vouloir supprimer ce fichiers ?')"><i class="delete icon"></i></a>
                         {% else %}
                             deleted
                         {% endif %}

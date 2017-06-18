@@ -1,8 +1,9 @@
-#TILE OF PAGES
+#TITLE OF PAGES
 page:
+  welcome: Bienvenue !
   register: S'inscrire
 
-#TEMPLATE.HTML.TWIG
+#MENU
 nav:
   home: Accueil
   access: Accéder à Drop&Go
@@ -11,6 +12,7 @@ nav:
   signup: S'inscrire
   logout: Se déconnecter
 
+#FOOTER
 footer:
   grp2:
     title: Langues
@@ -21,10 +23,15 @@ footer:
     third: S'inscrire
     fourth: Se connecter
   description: Une solution simple et efficace pour stocker vos fichiers en ligne.
+  buttons:
+    signup: S'inscrire
+    login: Se connecter
 
 
 
 #INDEX.HTML.TWIG
+page:
+  welcome: Bienvenue !
 intro:
   title: Vos fichiers accessibles n'importe où, quand vous voulez
   button: S'inscrire

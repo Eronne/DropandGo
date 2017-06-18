@@ -1,8 +1,9 @@
-#TILE OF PAGES
-#Todo: Put locales variables for FOSUser pages
+#TITLE OF PAGES
 page:
+  welcome: Welcome!
   register: Sign up
 
+#MENU
 nav:
   home: Home
   access: Go to Drop&Go
@@ -11,6 +12,7 @@ nav:
   signup: Sign up
   logout: Logout
 
+#FOOTER
 footer:
   grp2:
     title: Languages
@@ -21,6 +23,9 @@ footer:
     third: Sign up
     fourth: Login
   description: A simple and efficient solution to store your files online
+  buttons:
+    signup: Sign up
+    login: Login
 
 
 
