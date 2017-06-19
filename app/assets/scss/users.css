@@ -95,5 +95,8 @@
     .main .full-page .languages {
       position: absolute;
       bottom: 4%; }
+      @media (max-width: 768px) {
+        .main .full-page .languages {
+          display: nonemenu; } }
 
 /*# sourceMappingURL=users.css.map */

@@ -138,6 +138,10 @@
     .languages{
       position: absolute;
       bottom: 4%;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
   }
 }
