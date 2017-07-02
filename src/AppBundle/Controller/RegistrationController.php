@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 class RegistrationController extends \FOS\UserBundle\Controller\RegistrationController
 {
     /**
-     * @Route("/login/{_locale}", name="register", defaults={"_locale": "fr"}, requirements={
+     * @Route("/register/{_locale}", name="register", defaults={"_locale": "fr"}, requirements={
      *     "_locale": "fr|en"
      * })
      * @param Request $request
